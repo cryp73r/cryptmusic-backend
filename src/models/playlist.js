@@ -14,6 +14,10 @@ const playSchema=mongoose.Schema({
         type: String,
         default: "playlist"
     },
+    count: {
+        type: Number,
+        default: 0
+    },
     songs: [{
         songId: {
             type: mongoose.Schema.Types.ObjectId,

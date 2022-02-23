@@ -1,11 +1,13 @@
 const request=require('request')
 
-const ytdata=(query, callback)=>{
-    const url=`https://www.googleapis.com/youtube/v3/search?key=${process.env.YOUTUBE_KEY}&q=${query}&part=snippet&maxResults=10`
+const ytdata=(url, callback)=>{
     request({url, json: true}, (error, {body})=>{
         if (error) {
             callback('Unable to connect to YT API', undefined)
-        } else if (body.items.length===0) {
+        } else if (body.error) {
+            callback('Limit exceeded', undefined)
+        }
+        else if (body.items.length===0) {
             callback('No match found!', undefined)
         } else {
             let result=[]
