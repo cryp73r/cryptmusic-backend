@@ -5,8 +5,6 @@ const ytdata=(query, callback)=>{
     request({url, json: true}, (error, {body})=>{
         if (error) {
             callback('Unable to connect to YT API', undefined)
-        } else if (!body.items) {
-            callback('Invalid search', undefined)
         } else if (body.items.length===0) {
             callback('No match found!', undefined)
         } else {
