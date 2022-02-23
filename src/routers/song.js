@@ -14,7 +14,7 @@ router.post('/song', async (req, res)=>{
     }
 })
 
-router.get('/song', auth, async (req, res)=>{
+router.get('/song', async (req, res)=>{
     try {
         const song=await Song.find({})
         res.status(200).send(song)
@@ -23,7 +23,7 @@ router.get('/song', auth, async (req, res)=>{
     }
 })
 
-router.get('/song/:id', auth, async (req, res)=>{
+router.get('/song/:id', async (req, res)=>{
     const _id=req.params.id
     try {
         const song=await Song.findOne({_id})
