@@ -9,7 +9,7 @@ router.post('/user/create', async (req, res)=>{
     try {
         await user.save()
         const token=await user.generateAuthToken()
-        res.status(201).send({token})
+        res.status(201).send({user, token})
     } catch (error) {
         res.status(400).send(error)
     }
@@ -21,7 +21,7 @@ router.post('/user', async (req, res)=>{
     try {
         const user=await User.findByCredentials(email, password)
         const token=await user.generateAuthToken()
-        res.status(200).send({token})
+        res.status(200).send({user, token})
     } catch (error) {
         res.status(400).send()
     }
@@ -66,7 +66,7 @@ router.patch('/user', auth, async (req, res)=>{
     try {
         updates.forEach((update)=>user[update]=req.body[update])
         await user.save()
-        res.status(200).send(user)
+        res.status(200).send({user})
     } catch (error) {
         res.status(400).send()
     }
