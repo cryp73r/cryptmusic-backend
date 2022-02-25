@@ -9,7 +9,7 @@ router.post('/user/create', async (req, res)=>{
     try {
         await user.save()
         const token=await user.generateAuthToken()
-        res.status(201).send({user, token})
+        res.status(201).send({token})
     } catch (error) {
         res.status(400).send(error)
     }
@@ -21,7 +21,7 @@ router.post('/user', async (req, res)=>{
     try {
         const user=await User.findByCredentials(email, password)
         const token=await user.generateAuthToken()
-        res.status(200).send({user, token})
+        res.status(200).send({token})
     } catch (error) {
         res.status(400).send()
     }

@@ -13,9 +13,8 @@ router.ws('/search', (ws, req)=>{
     ws.on('message', async (payload)=>{
         payload=JSON.parse(payload)
         try {
-            // const song=await Song.find({$or: [{title: {$regex: `^${payload.query}`, $options: 'i'}}, {description: {$regex: `^${payload.query}`, $options: 'i'}}]})
-            // const playlist=await Playlist.find({title: {$regex: `^${payload.query}`, $options: 'i'}})
-            let song=[], playlist=[]
+            const song=await Song.find({$or: [{title: {$regex: `^${payload.query}`, $options: 'i'}}, {description: {$regex: `^${payload.query}`, $options: 'i'}}]})
+            const playlist=await Playlist.find({title: {$regex: `^${payload.query}`, $options: 'i'}})
             if (song.length===0 && playlist.length===0) {
                 ytdata(payload.query, (error, ytresult)=>{
                     if (error) {
