@@ -4,6 +4,10 @@ const auth=require('../middleware/auth')
 
 const router=express.Router()
 
+router.get('/', (req, res)=>{
+    res.status(200).send()
+})
+
 router.post('/user/create', async (req, res)=>{
     const user=new User(req.body)
     try {
