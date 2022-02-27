@@ -12,7 +12,7 @@ var expressWs = require('express-ws')(app);
 const port=process.env.PORT
 
 app.use(express.json())
-app.use({origin: 'http://localhost:60904', optionsSuccessStatus: 200})
+app.use(cors({origin: 'http://localhost:60904', optionsSuccessStatus: 200}))
 app.use(userRouter)
 app.use(playlistRouter)
 app.use(songRouter)
