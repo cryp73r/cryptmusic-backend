@@ -1,4 +1,5 @@
 const express=require('express')
+const cors=require('cors')
 require('./db/mongoose')
 const userRouter=require('./routers/user')
 const playlistRouter=require('./routers/playlist')
@@ -11,6 +12,7 @@ var expressWs = require('express-ws')(app);
 const port=process.env.PORT
 
 app.use(express.json())
+app.use({origin: 'http://localhost:60904', optionsSuccessStatus: 200})
 app.use(userRouter)
 app.use(playlistRouter)
 app.use(songRouter)
