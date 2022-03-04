@@ -16,7 +16,13 @@ router.post('/song', async (req, res)=>{
 
 router.get('/song', async (req, res)=>{
     try {
-        const song=await Song.find({})
+        const song=await Song.find({}, [], {
+            skip: parseInt(req.query.skip),
+            limit: parseInt(req.query.limit),
+            sort: {
+                count: -1
+            }
+        })
         res.status(200).send(song)
     } catch (error) {
         res.status(500).send()
