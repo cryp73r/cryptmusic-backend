@@ -6,7 +6,7 @@ const ytdata=(req, query, callback)=>{
     const ipaddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     iplocation(ipaddress, (error, body)=>{
         if (!error) {
-            url+=`&location=${body.lat}%2C%20${body.lon}&locationRadius=500&type=video%2Clist`
+            url+=`&location=${body.lat}%2C%20${body.lon}&locationRadius=500km&type=video%2Clist`
         }
         request({url, json: true}, (error, {body})=>{
             if (error) {
