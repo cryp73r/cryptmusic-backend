@@ -16,7 +16,7 @@ router.ws('/search', (ws, req)=>{
             const song=await Song.find({$or: [{title: {$regex: `^${payload.query}`, $options: 'i'}}, {description: {$regex: `^${payload.query}`, $options: 'i'}}]})
             const playlist=await Playlist.find({title: {$regex: `^${payload.query}`, $options: 'i'}})
             if (song.length===0 && playlist.length===0) {
-                ytdata(payload.query, (error, ytresult)=>{
+                ytdata(req, payload.query, (error, ytresult)=>{
                     if (error) {
                         ws.send({
                             error: 'Unknown error occured'
