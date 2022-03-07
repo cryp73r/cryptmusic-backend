@@ -12,7 +12,7 @@ const playSchema=mongoose.Schema({
     },
     tag: {
         type: String,
-        default: "playlist"
+        default: "Playlist"
     },
     count: {
         type: Number,

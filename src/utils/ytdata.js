@@ -22,7 +22,8 @@ const ytdata=(query, callback)=>{
                     description: data.snippet.description,
                     thumbnails: data.snippet.thumbnails,
                     channelTitle: data.snippet.channelTitle,
-                    publishTime: data.snippet.publishTime
+                    publishTime: data.snippet.publishTime,
+                    tag: 'Song'
                 })
             })
             callback(undefined, result)

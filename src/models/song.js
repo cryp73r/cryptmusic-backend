@@ -30,7 +30,7 @@ const songSchema=mongoose.Schema({
     },
     tag: {
         type: String,
-        default: "song"
+        default: "Song"
     },
     count: {
         type: Number,
