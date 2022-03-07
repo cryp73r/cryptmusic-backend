@@ -19,7 +19,7 @@
     "mongoose": "^6.2.1",
     "request": "^2.88.2",
     "validator": "^13.7.0",
-    "ytdl-core": "^4.10.1"
+    "ytdl-core": "^4.11.0"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
