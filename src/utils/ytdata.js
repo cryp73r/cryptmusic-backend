@@ -23,6 +23,8 @@ const ytdata=(query, callback)=>{
                     thumbnails: data.snippet.thumbnails,
                     channelTitle: data.snippet.channelTitle,
                     publishTime: data.snippet.publishTime,
+                    tag: 'Song',
+                    count: 0
                 })
             })
             callback(undefined, result)
