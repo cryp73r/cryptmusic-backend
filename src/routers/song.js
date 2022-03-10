@@ -42,6 +42,21 @@ router.get('/song/:id', async (req, res)=>{
     }
 })
 
+router.patch('/song/:id', async (req, res)=>{
+    const _id=req.params.id
+    try {
+        const song=await Song.findOne({_id})
+        if (!song) {
+            return res.status(404).send()
+        }
+        song.count++
+        await song.save()
+        res.status(200).send()
+    } catch(error) {
+        res.status(400).send()
+    }
+})
+
 router.delete('/song/:id', auth, async (req, res)=>{
     const _id=req.params.id
     try {
