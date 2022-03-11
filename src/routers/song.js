@@ -7,6 +7,7 @@ const router=express.Router()
 router.post('/song', async (req, res)=>{
     const song=new Song(req.body)
     try {
+        song.count++;
         await song.save()
         res.status(201).send(song)
     } catch (error) {
