@@ -16,13 +16,16 @@ router.post('/song', async (req, res)=>{
 })
 
 router.get('/song', async (req, res)=>{
+    sort={}
+    if (req.query.sortBy) {
+        const parts = req.query.sortBy.split(':')
+        sort[parts[0]] = parts[1]==='desc'?-1:1
+    }
     try {
         const song=await Song.find({}, [], {
             skip: parseInt(req.query.skip),
             limit: parseInt(req.query.limit),
-            sort: {
-                count: -1
-            }
+            sort
         })
         res.status(200).send(song)
     } catch (error) {

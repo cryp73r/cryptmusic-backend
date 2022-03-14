@@ -36,6 +36,8 @@ const songSchema=mongoose.Schema({
         type: Number,
         default: 0
     }
+}, {
+    timestamps: true
 })
 
 const Song=mongoose.model('Song', songSchema)
