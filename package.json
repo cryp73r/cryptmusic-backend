@@ -19,6 +19,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.1",
     "postman-request": "^2.88.1-postman.43",
+    "range-parser": "^1.2.1",
     "validator": "^13.15.15"
   },
   "devDependencies": {
