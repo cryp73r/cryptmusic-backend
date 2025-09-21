@@ -1,4 +1,4 @@
-const request = require('request')
+const request = require('postman-request')
 
 const iplocation = (ipaddress, callback)=>{
     const url=`http://ip-api.com/json/${ipaddress}`

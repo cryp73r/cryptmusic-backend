@@ -8,6 +8,7 @@ const app=express()
 const expressWs=require('express-ws')(app)
 
 const router=express.Router()
+expressWs.applyTo(router)
 
 router.ws('/search', (ws, req)=>{
     ws.on('message', async (payload)=>{
@@ -19,7 +20,7 @@ router.ws('/search', (ws, req)=>{
                 ytdata(payload.query, (error, ytresult)=>{
                     if (error) {
                         ws.send({
-                            error: 'Unknown error occured'
+                            error: 'Unknown error occurred'
                         })
                     }
                     ws.send(JSON.stringify(ytresult))

@@ -1,4 +1,4 @@
-const request=require('request')
+const request=require('postman-request')
 const iplocation=require('./iplocation')
 
 const ytdata=(query, callback)=>{
