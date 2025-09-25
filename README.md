@@ -30,8 +30,8 @@ npm install
    Create a dev.env file in the config directory and add the following:
 ```
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
-GOOGLE_API_KEY=your_google_api_key
+MONGODB_URL=your_mongodb_connection_string
+YOUTUBE_KEY=your_youtube_api_key
 ```
 
 ### 4. Run the server
